@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Http\Controllers\FuzzyController as Fuzzy;
 Route::get('/', function () {
+    $harga = new Fuzzy(10000,20000,5000);
+    dd($harga->min(1000));
     return view('welcome');
 });
