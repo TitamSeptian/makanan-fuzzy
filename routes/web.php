@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\FuzzyController as Fuzzy;
 Route::get('/', function () {
-    $harga = new Fuzzy(10000,20000,5000);
+    $harga = new Fuzzy(10000,20000,50000);
     dd($harga->min(1000));
     return view('welcome');
 });

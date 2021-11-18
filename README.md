@@ -25,11 +25,11 @@ $ php artisan serv
 ```
 
 ## Kelompok :mag_right:
-- Reyhan
-- Reihan
-- Nika
-- Nikita
-- Septian
+- [Reyhan](https://github.com/ReyhanAP06)
+- [Reihan](https://github.com/nijkita)
+- [Nika](mailto:nikaqistyy@upi.edu)
+- [Nikita](https://github.com/nijkita)
+- [Septian](https://github.com/TitamSeptian)
 
 ## License
 
