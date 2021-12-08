@@ -13,11 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\FuzzyController as Fuzzy;
+
 Route::get('/', function () {
-    $harga = new Fuzzy(10000,20000,50000);
-    $mood = new Fuzzy(3,5,7);
-    $rasaPedas = new Fuzzy(3,5,7);
-    $rasaManis = new Fuzzy(3,5,7);
+    $harga = new Fuzzy(10000, 20000, 50000);
+    $mood = new Fuzzy(3, 5, 7);
+    $rasaPedas = new Fuzzy(3, 5, 7);
+    $rasaManis = new Fuzzy(3, 5, 7);
     $makanan = [
         "nama" => "Sempol",
         "jenis" => "Tidak Kuah",
@@ -46,6 +47,5 @@ Route::get('/', function () {
             "manis" => $rasaManis->max(8),
         ]
     ];
-    dd($makanan);
-    return view('welcome');
+    return view('landing', compact('makanan'));
 });
