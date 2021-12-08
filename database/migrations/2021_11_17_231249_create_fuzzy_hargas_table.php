@@ -14,7 +14,7 @@ class CreateFuzzyHargasTable extends Migration
     public function up()
     {
         Schema::create('fuzzy_hargas', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('makanan_id');
             $table->foreign('makanan_id')->references('id')->on('makanans');
             $table->float('murah', 8, 2);

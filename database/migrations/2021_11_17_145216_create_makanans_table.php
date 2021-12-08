@@ -14,10 +14,10 @@ class CreateMakanansTable extends Migration
     public function up()
     {
         Schema::create('makanans', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string("nama");
             $table->enum("jenis", ["kuah", "tidak kuah"]);
-            $table->integer("harga", 2);
+            $table->integer("harga");
             $table->integer("mood");
             $table->integer("rasa_pedas");
             $table->integer("rasa_manis");
