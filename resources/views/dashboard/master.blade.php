@@ -69,8 +69,15 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown profile-top"
                             aria-labelledby="profileDropdown">
-                            <a href="#" class="dropdown-item"><i class="ti-unlink profile-icon" aria-hidden="true"></i>
+                            <a href="#" id="btn-out" class="dropdown-item"><i class="ti-unlink profile-icon"
+                                    aria-hidden="true"></i>
                                 Sign-out</a>
+                            <form action="{{ route('logout') }}" method="post" id="logout-form">@csrf</form>
+                            <script>
+                                document.getElementById('btn-out').addEventListener("click", e => {
+                                    document.getElementById('logout-form').submit();
+                                })
+                            </script>
                         </div>
                     </li>
                 </ul>

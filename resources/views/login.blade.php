@@ -17,7 +17,7 @@
     {{-- <link rel="icon" href="img/core-img/favicon.png"> --}}
 
     <!-- Master Stylesheet CSS -->
-    <link rel="stylesheet" href="{{ asset('style-vito.css') }}">
+    <link rel="stylesheet" href="{{ url('/style-vito.css') }}">
 
 </head>
 
@@ -103,10 +103,10 @@
     ======================================= -->
 
     <!-- Plugins Js -->
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/popper.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/bundle.js') }}"></script>
+    <script src="{{ url('js/jquery.min.js') }}"></script>
+    <script src="{{ url('js/popper.min.js') }}"></script>
+    <script src="{{ url('js/bootstrap.min.js') }}"></script>
+    <script src="{{ url('js/bundle.js') }}"></script>
 
     <!-- Active JS -->
     <script src="js/default-assets/active.js"></script>
