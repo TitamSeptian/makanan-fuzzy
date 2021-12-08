@@ -3,7 +3,7 @@
     <li>Reyhan</li>
     <li>Reihan</li>
     <li>Nika</li>
-    <li>Niki</li>
+    <li>Nikita</li>
     <li>Septian</li>
 </ul>
 {{ dd($makanan) }}
