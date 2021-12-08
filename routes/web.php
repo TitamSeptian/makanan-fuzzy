@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\FuzzyController as Fuzzy;
+use App\Http\Controllers\MakananController;
 
 Route::get('/', function () {
     $harga = new Fuzzy(10000, 20000, 50000);
@@ -48,4 +50,16 @@ Route::get('/', function () {
         ]
     ];
     return view('landing', compact('makanan'));
+});
+
+Route::get('/login', [AuthController::class, "login"])->middleware('guest')->name("login");
+Route::post('/plogin', [AuthController::class, "postLogin"])->middleware('guest')->name("postLogin");
+Route::post('/logout', [AuthController::class, "logout"])->middleware('guest')->name("logout");
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard.dashboard');
+    })->name('dashboard');
+
+    Route::resource('/food', MakananController::class);
 });

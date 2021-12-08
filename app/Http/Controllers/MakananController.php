@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class MakananController extends Controller
 {
-    
+
     public function index()
     {
-        //
+        return view('dashboard.makanan.index');
     }
 
     public function create()
