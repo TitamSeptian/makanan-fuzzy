@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class FuzzyMood extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'makanan_id',
+        'sedih',
+        'normal',
+        'senang',
+    ];
+
+    public function makanan()
+    {
+        return $this->belongsTo(\App\Models\Makanan::class);
+    }
 }

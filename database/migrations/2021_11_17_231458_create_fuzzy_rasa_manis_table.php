@@ -19,7 +19,7 @@ class CreateFuzzyRasaManisTable extends Migration
             $table->foreign('makanan_id')->references('id')->on('makanans');
             $table->float('tidak', 8, 2);
             $table->float('normal', 8, 2);
-            $table->float('pedas', 8, 2);
+            $table->float('manis', 8, 2);
             $table->timestamps();
         });
     }

@@ -9,6 +9,8 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- Required meta tags -->
 
     <title>SIREKAN {{ $title }}</title>
@@ -39,9 +41,9 @@
         <!-- Top bar area -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo mr-5" href="index-2.html"><img src="img/core-img/logo.png"
+                <a class="navbar-brand brand-logo mr-5" href="{{ route('dashboard') }}"><img src="logo-sirekan2.png"
                         class="mr-2" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="index-2.html"><img src="img/core-img/small-logo.png"
+                <a class="navbar-brand brand-logo-mini" href="{{ route('dashboard') }}"><img src="logo-sirekan.png"
                         alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">

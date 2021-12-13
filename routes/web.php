@@ -62,4 +62,5 @@ Route::middleware('auth')->group(function () {
     })->name('dashboard');
 
     Route::resource('/food', MakananController::class);
+    Route::get('/foods', [MakananController::class, "data"])->name("food.data");
 });
