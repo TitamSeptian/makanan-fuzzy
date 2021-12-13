@@ -67,13 +67,16 @@ input[type="radio"].custom-radio {
     display: none;
 }
 input[type="radio"].custom-radio:checked + .box {
-    background-color: #fff;
-    border: 4px solid #fcba1e;
+    background-color: #fcba1e;
+    /* border: 4px solid #fff; */
     border-radius: 20px;
 }
 input[type="radio"].custom-radio:checked + .box span {
-    color: #fcba1e;
+    color: #fff;
     transform: translateY(70px);
+}
+input[type="radio"].custom-radio:checked + .box span svg path {
+    fill: #fff;
 }
 input[type="radio"].custom-radio:checked + .box span:before {
     transform: translateY(0px);
@@ -82,10 +85,11 @@ input[type="radio"].custom-radio:checked + .box span:before {
 .box {
     width: 200px;
     height: 200px;
-    background-color: #fcba1e;
+    background-color: #fff;
     transition: all 250ms ease;
     will-change: transition;
     display: inline-block;
+    border: 4px solid #fcba1e;
     color: #fff;
     text-align: center;
     cursor: pointer;
@@ -104,7 +108,10 @@ input[type="radio"].custom-radio:checked + .box span:before {
     transition: all 300ms ease;
     font-size: 1.5em;
     user-select: none;
-    color: #fff;
+    color: #fcba1e;
+}
+.box span svg {
+    /* margin-right: ; */
 }
 
 /* .front-end span:before {
