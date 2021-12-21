@@ -16,11 +16,15 @@ class CreateMakanansTable extends Migration
         Schema::create('makanans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string("nama");
-            $table->enum("jenis", ["kuah", "tidak kuah"]);
+            $table->enum("jenis", ["tidak", "kuah"]);
             $table->integer("harga");
             $table->integer("mood");
             $table->integer("rasa_pedas");
             $table->integer("rasa_manis");
+            $table->string("f_mood");
+            $table->string("f_harga");
+            $table->string("f_manis");
+            $table->string("f_pedas");
             $table->timestamps();
         });
     }

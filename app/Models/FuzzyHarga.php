@@ -13,6 +13,7 @@ class FuzzyHarga extends Model
         'murah',
         'normal',
         'mahal',
+        // 'f_harga',
     ];
 
     public function makanan()

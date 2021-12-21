@@ -13,6 +13,7 @@ class FuzzyMood extends Model
         'sedih',
         'normal',
         'senang',
+        // 'f_mood',
     ];
 
     public function makanan()

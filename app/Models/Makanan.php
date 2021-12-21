@@ -15,6 +15,10 @@ class Makanan extends Model
         'mood',
         'rasa_pedas',
         'rasa_manis',
+        "f_mood",
+        "f_harga",
+        "f_manis",
+        "f_pedas",
     ];
 
     public function fharga()

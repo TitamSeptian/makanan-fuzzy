@@ -20,6 +20,7 @@ class CreateFuzzyMoodsTable extends Migration
             $table->float('sedih', 8, 2);
             $table->float('normal', 8, 2);
             $table->float('senang', 8, 2);
+            // $table->string("f_mood");
             $table->timestamps();
         });
     }

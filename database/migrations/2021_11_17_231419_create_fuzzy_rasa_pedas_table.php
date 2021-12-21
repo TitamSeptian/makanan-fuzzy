@@ -20,6 +20,7 @@ class CreateFuzzyRasaPedasTable extends Migration
             $table->float('tidak', 8, 2);
             $table->float('normal', 8, 2);
             $table->float('pedas', 8, 2);
+            // $table->string("f_pedas");
             $table->timestamps();
         });
     }

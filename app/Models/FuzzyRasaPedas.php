@@ -13,6 +13,7 @@ class FuzzyRasaPedas extends Model
         'tidak',
         'normal',
         'pedas',
+        // 'f_pedas',
     ];
 
     public function makanan()

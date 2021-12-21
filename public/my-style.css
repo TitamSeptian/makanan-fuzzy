@@ -120,3 +120,12 @@ input[type="radio"].custom-radio:checked + .box span:before {
 .back-end span:before {
     content: "\f0f4";
 } */
+
+.res-card {
+    background-color: #fcba1e;
+    border: 2px solid #dda31a;
+    margin: 10px 0 10px 0;
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: #fff;
+}

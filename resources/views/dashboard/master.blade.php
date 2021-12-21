@@ -20,6 +20,8 @@
     @stack('css')
     <!-- Master Stylesheet CSS -->
     <link rel="stylesheet" href="style-vito.css">
+    <link rel="icon" type="image/png" href="{{ asset('logo-sirekan.png') }}" />
+
 
 </head>
 

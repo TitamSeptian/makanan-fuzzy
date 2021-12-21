@@ -55,6 +55,7 @@ Route::get('/', function () {
 Route::get('/login', [AuthController::class, "login"])->middleware('guest')->name("login");
 Route::post('/plogin', [AuthController::class, "postLogin"])->middleware('guest')->name("postLogin");
 Route::post('/logout', [AuthController::class, "logout"])->middleware('auth')->name("logout");
+Route::post('/rec', [MakananController::class, "getRecommendation"])->name("rec");
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {

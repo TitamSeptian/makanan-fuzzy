@@ -80,15 +80,8 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-2">List Makanan</h4>
-                    {{-- <p class="text-muted font-14 mb-4">
-                        DataTables has most features enabled by default, so all you need to do to use it with your own
-                        tables is to call the construction
-                        function:
-                        <code>$().DataTable();</code>. KeyTable provides Excel like cell navigation on any table. Events
-                        (focus, blur, action etc) can be assigned to individual
-                        cells, columns, rows or all cells.
-                    </p> --}}
-                    <button class="btn btn-primary float-right" id="btn-create" data-url="{{ route('food.create') }}">+
+                    <button class="btn btn-primary float-right" id="btn-create" data-title="Makanan Baru"
+                        data-url="{{ route('food.create') }}">+
                         Tambah</button>
                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                         <thead>

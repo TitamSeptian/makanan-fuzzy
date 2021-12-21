@@ -20,6 +20,7 @@ class CreateFuzzyHargasTable extends Migration
             $table->float('murah', 8, 2);
             $table->float('normal', 8, 2);
             $table->float('mahal', 8, 2);
+            // $table->string("f_harga");
             $table->timestamps();
         });
     }
