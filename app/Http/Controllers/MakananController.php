@@ -138,30 +138,116 @@ class MakananController extends Controller
 
     public function show($id)
     {
-        $data = Makanan::findOrFail($id);
+        $data = Makanan::where("id",$id)->with(["fharga", "fmood", "fpedas", "fmanis"])->first();
+        // dd($data);
         return view('dashboard.makanan.show', compact("data"));
 
     }
 
     public function edit($id)
     {
-        //
+        $data = Makanan::where("id",$id)->with(["fharga", "fmood", "fpedas", "fmanis"])->first();
+        return view("dashboard.makanan.edit", compact("data"));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $makanan = Makanan::findOrFail($id);
+        $makanan->update([
+            "nama" => $request->nama,
+            "jenis" => $request->jenis,
+            "harga"=> $request->harga,
+            "mood"=> $request->mood,
+            "rasa_pedas"=> $request->pedas,
+            "rasa_manis"=> $request->manis,
+            "f_mood" => $this->getIndexFuzzy("mood", 
+                $this->mood->min($request->mood),
+                $this->mood->normal($request->mood),
+                $this->mood->max($request->mood)),
+            "f_harga" => $this->getIndexFuzzy("harga", 
+                $this->harga->min($request->harga),
+                $this->harga->normal($request->harga),
+                $this->harga->max($request->harga)),
+            "f_manis" => $this->getIndexFuzzy("manis", 
+                $this->manis->min($request->manis),
+                $this->manis->normal($request->manis),
+                $this->manis->max($request->manis)),
+            "f_pedas" => $this->getIndexFuzzy("pedas", 
+                $this->pedas->min($request->pedas),
+                $this->pedas->normal($request->pedas),
+                $this->pedas->max($request->pedas))
+        ]);
+
+        $makanan->fmood->update([
+            "makanan_id" => $makanan->id,
+            "sedih" => $this->mood->min($request->mood),
+            "normal" => $this->mood->normal($request->mood),
+            "senang" => $this->mood->max($request->mood),
+            // "f_mood" => $this->getIndexFuzzy("mood", 
+            //     $this->mood->min($request->mood),
+            //     $this->mood->normal($request->mood),
+            //     $this->mood->max($request->mood))
+        ]);
+        
+        $makanan->fharga->update([
+            "makanan_id" => $makanan->id,
+            "murah" => $this->harga->min($request->harga),
+            "normal" => $this->harga->normal($request->harga),
+            "mahal" => $this->harga->max($request->harga),
+            // "f_harga" => $this->getIndexFuzzy("harga", 
+            //     $this->harga->min($request->harga),
+            //     $this->harga->normal($request->harga),
+            //     $this->harga->max($request->harga))
+        ]);
+
+        $makanan->fmanis->update([
+            "makanan_id" => $makanan->id,
+            "tidak" => $this->manis->min($request->manis),
+            "normal" => $this->manis->normal($request->manis),
+            "manis" => $this->manis->max($request->manis),
+            // "f_manis" => $this->getIndexFuzzy("manis", 
+            //     $this->manis->min($request->manis),
+            //     $this->manis->normal($request->manis),
+            //     $this->manis->max($request->manis))
+        ]);
+
+        $makanan->fpedas->update([
+            "makanan_id" => $makanan->id,
+            "tidak" => $this->pedas->min($request->pedas),
+            "normal" => $this->pedas->normal($request->pedas),
+            "pedas" => $this->pedas->max($request->pedas),
+            // "f_pedas" => $this->getIndexFuzzy("pedas", 
+            //     $this->pedas->min($request->pedas),
+            //     $this->pedas->normal($request->pedas),
+            //     $this->pedas->max($request->pedas))
+        ]);
+
+        return response()->json(["msg" => "Berhasil Diubah"],200);
+
     }
 
     public function destroy($id)
     {
-        //
+        $makanan = Makanan::findOrFail($id);
+        $makanan->fmood->delete();
+        $makanan->fharga->delete();
+        $makanan->fmanis->delete();
+        $makanan->fpedas->delete();
+        $makanan->delete();
+
+        return response()->json(["msg" => "Berhasil Dihapus"],200);
+
     }
 
     public function data()
     {
         $data = Makanan::query()->with(["fharga", "fmood", "fpedas", "fmanis"]);
-        return DataTables::of($data)->toJson();
+        return DataTables::of($data)
+            ->addColumn('action', function($data){
+                return view('dashboard.makanan.action', [
+                    'data' => $data,
+                ]);
+            })->rawColumns(['action'])->addIndexColumn()->make(true);
     }
 
     public function getRecommendation(Request $request)

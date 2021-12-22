@@ -16,7 +16,7 @@ class CreateFuzzyHargasTable extends Migration
         Schema::create('fuzzy_hargas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('makanan_id');
-            $table->foreign('makanan_id')->references('id')->on('makanans');
+            $table->foreign('makanan_id')->references('id')->on('makanans')->onDelete("cascade");
             $table->float('murah', 8, 2);
             $table->float('normal', 8, 2);
             $table->float('mahal', 8, 2);

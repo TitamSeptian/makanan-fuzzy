@@ -23,19 +23,19 @@ class Makanan extends Model
 
     public function fharga()
     {
-        return $this->hasMany(\App\Models\FuzzyHarga::class);
+        return $this->hasOne(\App\Models\FuzzyHarga::class);
     }
 
     public function fmood()
     {
-        return $this->hasMany(\App\Models\FuzzyMood::class);
+        return $this->hasOne(\App\Models\FuzzyMood::class);
     }
     public function fpedas()
     {
-        return $this->hasMany(\App\Models\FuzzyRasaPedas::class);
+        return $this->hasOne(\App\Models\FuzzyRasaPedas::class);
     }
     public function fmanis()
     {
-        return $this->hasMany(\App\Models\FuzzyRasaManis::class);
+        return $this->hasOne(\App\Models\FuzzyRasaManis::class);
     }
 }

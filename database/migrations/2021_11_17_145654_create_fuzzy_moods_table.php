@@ -16,7 +16,7 @@ class CreateFuzzyMoodsTable extends Migration
         Schema::create('fuzzy_moods', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('makanan_id');
-            $table->foreign('makanan_id')->references('id')->on('makanans');
+            $table->foreign('makanan_id')->references('id')->on('makanans')->onDelete("cascade");
             $table->float('sedih', 8, 2);
             $table->float('normal', 8, 2);
             $table->float('senang', 8, 2);

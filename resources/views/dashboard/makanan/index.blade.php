@@ -33,6 +33,12 @@
                 "info": false,
                 ajax: "{{ route('food.data') }}",
                 columns: [{
+                        data: "DT_RowIndex",
+                        name: "DT_RowIndex",
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
                         data: "nama",
                         name: "nama"
                     },
@@ -55,6 +61,10 @@
                     {
                         data: "rasa_manis",
                         name: "rasa_manis"
+                    },
+                    {
+                        data: "action",
+                        name: "action"
                     },
                 ],
                 keys: !0,
@@ -86,12 +96,14 @@
                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                         <thead>
                             <tr>
+                                <th>No.</th>
                                 <th>Makanan</th>
                                 <th>Harga</th>
                                 <th>Jenis</th>
                                 <th>Tingkat Mood</th>
                                 <th>Tingkat Pedas</th>
                                 <th>Tingkat Manis</th>
+                                <th>#</th>
                             </tr>
                         </thead>
 

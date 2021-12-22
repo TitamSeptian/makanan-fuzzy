@@ -15,12 +15,22 @@ class FuzzyController extends Controller
 
     public function min($x)
     {
-        if ($x == $this->down) {
+        // if(16000 <= 10000){
+        //     return 1
+        // }else if(1000 >= 20000){
+        //     return 0
+        // }else {
+        //     return (10000-16000)/(20000-10000)
+        // }
+
+
+
+        if ($x <= $this->down) {
             return 1;
         } else if ($x >= $this->middle) {
             return 0;
         } else {
-            return ($this->down - $x) / ($this->middle - $this->down);
+            return ($this->middle - $x) / ($this->middle - $this->down);
         }
     }
 
