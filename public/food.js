@@ -171,3 +171,21 @@ $("body").on("click", ".btn-delete", function (e) {
         alert("Dibatalkan");
     }
 });
+
+$(document).ready(function () {
+    var body = $("body");
+    var sto = $("#rec");
+    var position = sto.offset().top - body.offset().top + body.scrollTop();
+
+    $("#nav-rec").click(function () {
+        $("html, body").animate(
+            {
+                scrollTop: position - 60,
+            },
+            800,
+            function () {
+                $(window).scrollTop(position - 60);
+            }
+        );
+    });
+});

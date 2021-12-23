@@ -50,7 +50,7 @@ Route::get('/', function () {
         ]
     ];
     return view('landing', compact('makanan'));
-});
+})->name('landing');
 
 Route::get('/login', [AuthController::class, "login"])->middleware('guest')->name("login");
 Route::post('/plogin', [AuthController::class, "postLogin"])->middleware('guest')->name("postLogin");
@@ -65,3 +65,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/food', MakananController::class);
     Route::get('/foods', [MakananController::class, "data"])->name("food.data");
 });
+
+Route::get('/about', function (){
+    return view("dashboard.about.index");
+})->name('about');
