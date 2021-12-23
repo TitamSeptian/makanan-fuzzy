@@ -7,7 +7,8 @@
                 <p>Made by @<a href="#">SUKSES</a></p>
             </div>
             <div class="fotter-icon text-center">
-                <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Facebook">
+                <a href="https://github.com/TitamSeptian/makanan-fuzzy" class="action-item mr-2" data-toggle="tooltip"
+                    title="Github">
                     <i class="fa fa-github" aria-hidden="true"></i>
                 </a>
             </div>

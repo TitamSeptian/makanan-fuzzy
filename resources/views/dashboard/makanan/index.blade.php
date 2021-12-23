@@ -98,8 +98,8 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Makanan</th>
-                                <th>Harga</th>
                                 <th>Jenis</th>
+                                <th>Harga</th>
                                 <th>Tingkat Mood</th>
                                 <th>Tingkat Pedas</th>
                                 <th>Tingkat Manis</th>
