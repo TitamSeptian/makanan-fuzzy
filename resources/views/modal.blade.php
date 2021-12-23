@@ -3,6 +3,7 @@
         <div class="modal-content animated bounceInRight">
             <div class="modal-header">
                 <h4 class="modal-title d-block" id="modal-title">Title</h4>
+                <a href="#" data-dismiss="modal">&times;</a>
             </div>
             <div class="modal-body" id="modal-body">
                 <p class="text-center">Sedang Memuat</p>

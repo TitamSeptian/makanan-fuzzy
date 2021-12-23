@@ -47,7 +47,7 @@
     </nav>
     <div class="container-fluid bg-image">
         <div class="d-flex flex-column justify-content-center vh-100 w-50 ">
-            <h1 class="display-1 font-weight-bold"><span class="text-color-1">SI</span>REKAN</h1>
+            <h1 class="display-1 font-weight-bold" id="hero-text"><span class="text-color-1">SI</span>REKAN</h1>
             <p class="h5">Sistem Rekomendasi Makanan</p>
             <div class="black-line my   -3"></div>
             <p>Aplikasi ini dibuat untuk menentukan makanan apa yang diinginkan berdasarkan Mood, Jenis, Pedas Manis dan

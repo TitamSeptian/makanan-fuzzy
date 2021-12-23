@@ -59,6 +59,7 @@ Route::post('/rec', [MakananController::class, "getRecommendation"])->name("rec"
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
+        // $makanan = App/Model/Makanan::all();
         return view('dashboard.dashboard');
     })->name('dashboard');
 
