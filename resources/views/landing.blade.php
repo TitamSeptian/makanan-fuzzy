@@ -53,7 +53,7 @@
             <p>Aplikasi ini dibuat untuk menentukan makanan apa yang diinginkan berdasarkan Mood, Jenis, Pedas Manis dan
                 Harga.
             </p>
-            <div class="btn btn-color-1 w-25">Info Selengkapnya</div>
+            <a class="btn btn-color-1 w-25" href="{{ route('about') }}">Info Selengkapnya</a>
         </div>
     </div>
     <div class="container" id="rec">
@@ -126,7 +126,7 @@
                     <div class="col-md-6">
 
                         <label>
-                            <input type="radio" class="custom-radio" name="kuah" value="kuah" />
+                            <input type="radio" class="custom-radio" name="kuah" value="tidak" />
                             <div class="box">
                                 <span>
                                     <svg width="50" height="50" viewBox="0 0 168 160" fill="none"
@@ -142,7 +142,7 @@
                     <div class="col-md-6">
 
                         <label class="mx-2">
-                            <input type="radio" class="custom-radio" name="kuah" value="tidak" />
+                            <input type="radio" class="custom-radio" name="kuah" value="kuah" />
                             <div class="box">
                                 <span>
                                     <svg width="50" height="50" viewBox="0 0 168 168" fill="none"

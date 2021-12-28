@@ -253,6 +253,7 @@ class MakananController extends Controller
     public function getRecommendation(Request $request)
     {
         $data = Makanan::where("f_mood", $request->mood)
+            ->where("jenis", $request->kuah)
             ->where("f_harga", $request->harga)
             ->where("f_manis", $request->manis)
             ->where("f_pedas", $request->pedas)
