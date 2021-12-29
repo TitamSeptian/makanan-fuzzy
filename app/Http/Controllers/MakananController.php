@@ -258,11 +258,48 @@ class MakananController extends Controller
             ->where("f_manis", $request->manis)
             ->where("f_pedas", $request->pedas)
             ->get();
-        // dd(count($data) >= 0);
+        $f = [];
+        foreach ($data as $d){
+            
+            // array_push($f, array_values([
+            //     \DB::table('makanans')
+            //     ->join("fuzzy_moods", "makanans.id", "fuzzy_moods.makanan_id")
+            //     ->join("fuzzy_hargas", "makanans.id", "fuzzy_hargas.makanan_id")
+            //     ->join("fuzzy_rasa_manis", "makanans.id", "fuzzy_rasa_manis.makanan_id")
+            //     ->join("fuzzy_rasa_pedas", "makanans.id", "fuzzy_rasa_pedas.makanan_id")
+            //     ->select("fuzzy_moods.$request->mood","fuzzy_hargas.$request->harga","fuzzy_rasa_manis.$request->manis","fuzzy_rasa_pedas.$request->pedas")
+            //     ->where("makanans.id", $d->id)->get()
+            // // \DB::table('fuzzy_moods')->select($request->mood)->where('makanan_id', $d->id)->first(),
+            // // \DB::table('fuzzy_hargas')->select($request->harga)->where('makanan_id', $d->id)->first(),
+            // // \DB::table('fuzzy_rasa_manis')->select($request->manis)->where('makanan_id', $d->id)->first(),
+            // // \DB::table('fuzzy_rasa_pedas')->select($request->pedas)->where('makanan_id', $d->id)->first(),
+            // ]));
+            $x = \DB::table('makanans')
+                ->join("fuzzy_moods", "makanans.id", "fuzzy_moods.makanan_id")
+                ->join("fuzzy_hargas", "makanans.id", "fuzzy_hargas.makanan_id")
+                ->join("fuzzy_rasa_manis", "makanans.id", "fuzzy_rasa_manis.makanan_id")
+                ->join("fuzzy_rasa_pedas", "makanans.id", "fuzzy_rasa_pedas.makanan_id")
+                ->select("fuzzy_moods.$request->mood","fuzzy_hargas.$request->harga","fuzzy_rasa_manis.$request->manis","fuzzy_rasa_pedas.$request->pedas")
+                ->where("makanans.id", $d->id)->get();
+            // array_values($x);
+            $x = json_decode(json_encode($x), true);
+            array_push($f,array_values($x));
+        }
+        // $f = array_values($f[0][0]);
+        // $f = array_values($f[1][0]);
+        // $f = array_values($f[2][0]);
+        // $f = array_values($f[3][0]);
+        $fs= [];
+        for($i = 0; $i < count($f) ; $i++){
+            // $f[$i] = array_map('intval', $f[$i][0]);
+            $f[$i] = array_values(array_map('intval',$f[$i][0]));
+            array_push($fs,min($f[$i]));
+        }
+        // dd($fs);
         if(count($data) == 0){
             return response()->json(["msg" => "makanan tidak ditemukan"], 404);
         }else{
-            return response()->json(["data" => $data], 200);
+            return response()->json(["data" => $data, "fires" => $fs], 200);
         }
 
     }

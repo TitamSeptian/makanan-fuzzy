@@ -63,6 +63,7 @@ $("body").on("submit", "#form-recommendation", function (e) {
                         <div class="res-card">
                             <h3 id="nama">${val.nama}</h3>
                             <p id="harga">Rp. ${val.harga}</p>
+                            <p id="fires">Fire Strength : ${res.fires[key]}</p>
                         </div>
                     </div>
                 `);
